@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+import { StylesProvider, jssPreset, ThemeProvider } from '@material-ui/core/styles';
+import {theme} from "./config/theme"
+import NavBar from "./components/header/NavBar"
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div dir="rtl">
+     <StylesProvider jss={jss}>
+      <ThemeProvider theme={theme("rtl")}>
+      <NavBar/>
+      </ThemeProvider>
+     </StylesProvider>
     </div>
   );
 }
