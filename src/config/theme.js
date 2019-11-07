@@ -37,3 +37,22 @@ export const theme = (dir)=>{
         
       }))
 }
+
+
+/*
+PRIMARY_DARK  : "#14588d", // Status bar, ...
+  PRIMARY  : "#4479a5", // Buttons, Headers, Icons, ...
+  ACCENT : "#77acd6", //
+  TEXT: "#FEFEFE", //
+​
+  WHITE : "#F2F2F2",
+  BLACK : "#242a38",
+  GRAY : "#a7a9ac",
+​
+  // Fallback(s), Backward compatibility
+  DANGER: "#980000", // Errors, Network connections alerts, ...
+  WARNING: "#ffa940",
+​
+  SECONDARY : "#4379a4",
+  SECONDARY_LITE : "#76acd7",
+  */

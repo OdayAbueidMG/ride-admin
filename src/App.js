@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 import { StylesProvider, jssPreset, ThemeProvider } from '@material-ui/core/styles';
@@ -15,8 +15,9 @@ const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 
 
- class App extends React.Component {
+ class App extends Component {
 
+    
 
   render(){
     
@@ -24,24 +25,22 @@ const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
     
     // check if the user logged render admin app else login screen
     let whatToShow =(
+            <Router>
             <MainLayout>
-              <Pages/>
-            </MainLayout>
+               <Pages/>
+             </MainLayout>
+            </Router>
                     )
   
     if(!isLogged){
       whatToShow=(<HomePage/>)
     }
     return (
-      <Router>
-      <div dir="rtl">
        <StylesProvider jss={jss}>
         <ThemeProvider theme={theme("rtl")}>
-        {whatToShow}
+          {whatToShow}
         </ThemeProvider>
        </StylesProvider>
-      </div>
-      </Router>
     );
   }
 };
@@ -49,7 +48,8 @@ const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 const mapStateToProps = (state) => {
   return {
-    isLogged:state.auth.isLogged
+    isLogged:state.auth.isLogged,
+    token:state.auth.token
   }
 }
 

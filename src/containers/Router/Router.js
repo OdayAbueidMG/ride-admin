@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component ,Suspense} from 'react';
 import { Route} from "react-router-dom";
 import Login from "../Auth/Auth"
 import Aux from "../../hoc/Aux"
-import Drivers from "../Drivers/drivers"
-
+import LinearProgress from '@material-ui/core/LinearProgress';
+const Drivers = React.lazy(() => import('../Drivers/drivers'));
 
  class Router extends Component {
     render() {
         return (
-            <Aux>
+        
+                <Suspense fallback={<LinearProgress/>}>
                 <Route path="/home" component={Login} />
                 <Route path="/drivers" component={Drivers} />
-            </Aux>
+                </Suspense>
+        
         
                   
         )
